@@ -331,18 +331,7 @@ static __inline int FASTABS(int x)
 
 static __inline int CLZ(int x)
 {
-  int numZeros;
-
-  if (!x)
-    return (sizeof(int) * 8);
-
-  numZeros = 0;
-  while (!(x & 0x80000000)) {
-    numZeros++;
-    x <<= 1;
-  }
-
-  return numZeros;
+	return __builtin_clz(x);
 }
 
 /* returns 64-bit value in [edx:eax] */
@@ -352,7 +341,7 @@ static __inline Word64 MADD64(Word64 sum64, int x, int y)
     return sum64;
 }
 
-static __inline__ int MULSHIFT32(int x, int y)
+static __inline int MULSHIFT32(int x, int y)
 {
     int z;
 

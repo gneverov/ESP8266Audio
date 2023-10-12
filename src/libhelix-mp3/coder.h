@@ -91,6 +91,8 @@
 #define MAX_REORDER_SAMPS		((192-126)*3)		/* largest critical band for short blocks (see sfBandTable) */
 #define VBUF_LENGTH				(17 * 2 * NBANDS)	/* for double-sized vbuf FIFO */
 
+#define TIME_CRITICAL           __attribute__ ((section (".time_critical.audio_mp3")))
+
 /* additional external symbols to name-mangle for static linking */
 #define	SetBitstreamPointer	STATNAME(SetBitstreamPointer)
 #define	GetBits				STATNAME(GetBits)

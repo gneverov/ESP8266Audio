@@ -142,7 +142,7 @@ static const int dcttab[48] PROGMEM = {
  *                enough registers)
  **************************************************************************************/
 // about 1ms faster in RAM
-/* attribute__ ((section (".data"))) */ void FDCT32(int *buf, int *dest, int offset, int oddBlock, int gb)
+TIME_CRITICAL void FDCT32(int *buf, int *dest, int offset, int oddBlock, int gb)
 {
     int i, s, tmp, es;
     const int *cptr = dcttab;
